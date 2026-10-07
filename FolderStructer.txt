@@ -1,0 +1,24 @@
+## Project Installation
+ npm create vite@latest
+ npm install tailwindcss @tailwindcss/vite
+ npm install react-router-dom
+ npm install lucide-react
+
+src
+|---> components
+|---> config
+|---> data
+|---> layout
+|       |---> MainLayout.jsx
+|       |---> Sidebar.jsx
+|       |---> Topbar.jsx 
+|---> pages
+|      |----> Dashboard.jsx
+|      |----> Orders.jsx
+|      |----> Products.jsx
+|      |----> Users.jsx
+|      |----> Settings.jsx
+|      |----> Profile.jsx   
+|---> services
+|      |---> api.js
+|
