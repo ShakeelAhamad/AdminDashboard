@@ -6,9 +6,9 @@ A responsive admin dashboard built with React 19, Vite, Tailwind CSS, React Rout
 
 The project is ready to deploy, but no public deployment URL is configured in this repository yet.
 
-**Live demo:** [Add your deployed dashboard URL here](https://your-live-demo-url.example.com)
+**Live demo:** [Add your deployed dashboard URL here](https://admindashboardv2-git-main-shakeelahamad.vercel.app/dashboard)
 
-**Source code:** [github.com/ShakeelAhamad/react-19-redux](https://github.com/ShakeelAhamad/react-19-redux)
+**Source code:** [github.com/ShakeelAhamad/AdminDashboard](https://github.com/ShakeelAhamad/AdminDashboard)
 
 ## Features
 
