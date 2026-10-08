@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { api } from '../services/api';
 import { Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SuspenseLoader from '../components/SuspenseLoader';
 
 function Roles() {
     const [rolesData, setRolesData] = useState(null);
@@ -26,9 +27,7 @@ function Roles() {
     //Show Loading 
     if (loading && !rolesData) {
         return (
-            <div className="flex items-center justify-center h-64">
-                <div className="w-12 h-12 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
-            </div>
+            <SuspenseLoader/>
         )
     }
 

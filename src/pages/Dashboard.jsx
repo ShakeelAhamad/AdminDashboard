@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { api } from '../services/api';
 import { IndianRupee, ListOrdered, UserCheck, Users } from 'lucide-react';
+import SuspenseLoader from '../components/SuspenseLoader';
+import CardView from '../components/ui/CardView';
 
 function Dashboard() {
   const [dashboardData, setDashboard] = useState(null);
@@ -24,9 +26,7 @@ function Dashboard() {
   //Show Loading 
   if(loading && !dashboardData){
      return(
-      <div className="flex items-center justify-center h-64">
-         <div className="w-12 h-12 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
-      </div>
+      <SuspenseLoader/>
      )
   }
 
@@ -70,18 +70,12 @@ function Dashboard() {
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {
           statsItems.map((item,idx) => (
-            <div 
-            key={idx} 
-            className="bg-white border border-gray-100 rounded-xl p-6 flex items-center justify-between"
-            >
-              <div className="space-y-2">
-                <p className="text-xs font-light text-text-primary uppercase">{item.label}</p>
-                <p className="text-2xl font-light text-gray-900">{item.value}</p>
-              </div>
-              <div className="w-10 h-10 bg-gray-50 rounded flex items-center justify-center">
-                <item.icon/>
-              </div>
-            </div>
+            <CardView
+              key={idx}
+              label={item.label}
+              value={item.value}
+              icon={<item.icon/>}
+             />
           ))
         }
        </div>

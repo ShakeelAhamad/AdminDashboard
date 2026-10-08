@@ -1,6 +1,7 @@
 import React from "react";
 import { navigation } from "../config/navigation";
 import { NavLink } from "react-router-dom";
+import { X } from 'lucide-react';
 
 function Sidebar({ showSidebar, setShowSidebar }) {
   return (
@@ -16,13 +17,20 @@ function Sidebar({ showSidebar, setShowSidebar }) {
     >
       {/* Logo */}
       <div className="shrink-0 border-b border-text-secondary/10 px-6 py-5">
-        <h1 className="text-xl font-semibold">
-          Admin{" "}
-          <span className="font-light text-indigo-400">
+    <h1 className="flex items-center text-xl font-semibold">
+        Admin{" "}
+        <span className="font-light text-indigo-400">
             Hub
-          </span>
-        </h1>
-      </div>
+        </span>
+
+        <button
+            className="ml-auto rounded-md p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 md:hidden"
+            onClick={() => setShowSidebar(false)}
+        >
+            <X size={20} />
+        </button>
+    </h1>
+</div>
 
       {/* Menu */}
       <div

@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function UserForm() {
     const [usersData, setUsersData] = useState(null);
     const [saved, setSaved] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [startDate, setStartDate] = useState(new Date());
     const [formData, setFormData] = useState({
         userName: "",
         userEmail: "",
@@ -33,7 +36,7 @@ function UserForm() {
         navigate("/user/list");
         if (usersData) {
             setFormData(usersData);
-            
+
         }
         setSaved(false);
     }
@@ -94,14 +97,21 @@ function UserForm() {
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Joined Date</label>
-                        <input
-                            type='date'
-                            name='userJoined'
-                            value={formData.userJoined}
-                            onChange={handleChange}
-                            placeholder="Enter user joined date"
-                            className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 cursor-pointer"
-                        />
+                        <div className="relative w-full">
+                            <DatePicker
+                                selected={formData.userJoined ? new Date(formData.userJoined) : null}
+                                onChange={(date) => {
+                                    setStartDate(date);
+                                    setFormData((prev) => ({
+                                        ...prev,
+                                        userJoined: date,
+                                    }));
+                                }}
+                                placeholderText="Select user joined date"
+                                wrapperClassName="w-full"
+                                className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 cursor-pointer"
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className='p-6 space-y-6'>

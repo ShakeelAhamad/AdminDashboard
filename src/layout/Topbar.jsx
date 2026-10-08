@@ -12,7 +12,9 @@ function Topbar({showSidebar,setShowSidebar}) {
     <div className="sticky top-0 z-40 flex h-20 items-center justify-between border-b border-slate-200 bg-white px-8 shadow-sm">
       {/* Page Title */}
       <div className="flex items-center gap-4">
-        <Menu onClick={() => setShowSidebar(!showSidebar)}/>
+        <button className='md:hidden'>
+          <Menu onClick={() => setShowSidebar(!showSidebar)}/> 
+        </button>
         <h1 className="text-xl font-light text-gray-900">{pageTitle}</h1>
       </div>
 
@@ -24,7 +26,7 @@ function Topbar({showSidebar,setShowSidebar}) {
             AU
           </div>
           {/* Text */}
-          <span className="text-sm text-gray-600 font-light"> Admin User</span>
+          <span className="hidden sm:inline text-sm text-gray-600 font-light"> Admin User</span>
           {/* icon */}
           <span className="text-gray-600">
             {isOpen ? <ChevronUp size={20}/> : <ChevronDown size={20}/>}
